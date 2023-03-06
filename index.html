@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Neurônio McP</title>
+</head>
+
+<body>
+  <h1>Neurônio McP</h1>
+  <hr>
+  <br><br><br>
+
+  <h4>Porta-lógica <span>(inserir em treino e validação)</span></h4>
+
+  <select id="porta">
+    <option value="and">AND</option>
+    <option value="and">OR</option>
+    <option value="and">NAND</option>
+    <option value="and">NOR</option>
+  </select>
+
+  <h4>Entradas <span>(inserir em treino e validação)</span></h4>
+  <label for="peso1">w1: </label>
+  <input type="number" min="0" max="1" id="peso1">
+  <label for="peso2">w2: </label>
+  <input type="number" min="0" max="1" id="peso2">
+  <label for="peso3">w3: </label>
+  <input type="number" min="0" max="1" id="peso3">
+  <label for="peso4">w4: </label>
+  <input type="number" min="0" max="1" id="peso4">
+  <label for="peso5">w0: </label>
+  <input type="number" min="0" max="1" id="peso5">
+
+  <h4>Coeficiente de Treinamento <span>(inserir em treino)</span></h4>
+  <input type="number" id="coeficiente">
+
+  <br><br>
+  <button id="treinar" onclick="treinamentoDoUsuario()">Treinar</button>
+  <button id="validar" onclick="validarRede()">Testar / Validar</button>
+  <button id="salvar" onclick="trataEntradasDoUsuario()">Salvar</button>
+</body>
+<script src="main.js"></script>
+
+</html>
