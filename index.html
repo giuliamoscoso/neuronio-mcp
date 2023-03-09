@@ -12,36 +12,67 @@
 <body>
   <h1>Neurônio McP</h1>
   <hr>
-  <br><br><br>
 
-  <h4>Porta-lógica <span>(inserir em treino e validação)</span></h4>
+  <div id="conteudo">
+    <div>
+      <h4>Porta-lógica</h4>
+      <select id="porta" onchange="getPorta()">
+        <option>- SELECIONE -</option>
+        <option value="and">AND</option>
+        <option value="or">OR</option>
+        <option value="nand">NAND</option>
+        <option value="nor">NOR</option>
+      </select>
 
-  <select id="porta">
-    <option value="and">AND</option>
-    <option value="and">OR</option>
-    <option value="and">NAND</option>
-    <option value="and">NOR</option>
-  </select>
+      <h4>Peso</h4>
+      <label for="peso1">w1: </label>
+      <input type="number" class="pesos" min="0" max="1" id="peso1">
+      <label for="peso2">w2: </label>
+      <input type="number" class="pesos" min="0" max="1" id="peso2">
+      <label for="peso3">w3: </label>
+      <input type="number" class="pesos" min="0" max="1" id="peso3">
+      <label for="peso4">w4: </label>
+      <input type="number" class="pesos" min="0" max="1" id="peso4">
+      <label for="peso5">w0: </label>
+      <input type="number" class="pesos" min="0" max="1" id="peso5">
+      <button id="treinar" onclick="setValoresAleatorios()">Aleatório</button>
 
-  <h4>Entradas <span>(inserir em treino e validação)</span></h4>
-  <label for="peso1">w1: </label>
-  <input type="number" min="0" max="1" id="peso1">
-  <label for="peso2">w2: </label>
-  <input type="number" min="0" max="1" id="peso2">
-  <label for="peso3">w3: </label>
-  <input type="number" min="0" max="1" id="peso3">
-  <label for="peso4">w4: </label>
-  <input type="number" min="0" max="1" id="peso4">
-  <label for="peso5">w0: </label>
-  <input type="number" min="0" max="1" id="peso5">
+      <h4>Coeficiente de Treinamento</h4>
+      <input type="number" value="0.5" id="coeficiente">
 
-  <h4>Coeficiente de Treinamento <span>(inserir em treino)</span></h4>
-  <input type="number" id="coeficiente">
+      <h4>Épocas</h4>
+      <input type="number" value="30" id="epocas">
 
-  <br><br>
-  <button id="treinar" onclick="treinamentoDoUsuario()">Treinar</button>
-  <button id="validar" onclick="validarRede()">Testar / Validar</button>
-  <button id="salvar" onclick="trataEntradasDoUsuario()">Salvar</button>
+      <br><br>
+
+      <button id="treinar" onclick="treinarRede()">Treinar</button>
+      <button id="salvar" onclick="trataEntradasDoUsuario()">Salvar</button>
+      <p id="treinado"> </p>
+
+      <h4>Entradas <span>(etapa de validação)</span></h4>
+      <label for="peso1">x1: </label>
+      <input type="number" class="entradas" min="0" max="1" id="peso1">
+      <label for="peso2">x2: </label>
+      <input type="number" class="entradas" min="0" max="1" id="peso2">
+      <label for="peso3">x3: </label>
+      <input type="number" class="entradas" min="0" max="1" id="peso3">
+      <label for="peso4">x4: </label>
+      <input type="number" class="entradas" min="0" max="1" id="peso4">
+      <button id="validar" onclick="validarRede()">Validar</button>
+    </div>
+    <div>
+      <img class="tabelas" src="./assets/and.png" alt="Tabela-verdade AND">
+      <img class="tabelas" src="./assets/or.png" alt="Tabela-verdade OR">
+      <br>
+      <img class="tabelas" src="./assets/nand.png" alt="Tabela-verdade NAND">
+      <img class="tabelas" src="./assets/nor.png" alt="Tabela-verdade NOR">
+
+      <hr>
+      <h2>Resultado</h2>
+      <p id="saida">Saída: </p>
+      <p id="pesos">Pesos: </p>
+    </div>
+  </div>
 </body>
 <script src="main.js"></script>
 
