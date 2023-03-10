@@ -79,6 +79,24 @@ const nor = [
     { entradas: [1, 1, 1, 1], saida: 0 },
 ];
 
+function salvaPesos() {
+    // Gera JSON com os pesos
+    let pesos = {
+        and: andTreinado,
+        or: orTreinado,
+        nand: nandTreinado,
+        nor: norTreinado,
+    };
+    // Exporta JSON
+    let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(pesos));
+    let downloadAnchorNode = document.createElement("a");
+    downloadAnchorNode.setAttribute("href", dataStr);
+    downloadAnchorNode.setAttribute("download", "pesos.json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+}
+
 function atualizarPesos(currentPeso) {
     document.getElementById("pesos").innerHTML = "";
     document.getElementById("pesos").innerHTML += `Pesos: `;
